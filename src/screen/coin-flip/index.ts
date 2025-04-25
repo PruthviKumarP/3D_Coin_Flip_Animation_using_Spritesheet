@@ -1,1 +1,1 @@
-export {default as CoinFlipper} from './CoinFlip';
+export { default as CoinFlipper } from './CoinFlip';

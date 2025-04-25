@@ -1,6 +1,6 @@
-import styled, { css, keyframes } from "styled-components";
-import { CoinProps } from "./CoinFlip.types";
-import { COIN_CONFIG } from "@/utils";
+import styled, { css, keyframes } from 'styled-components';
+import { CoinProps } from './CoinFlip.types';
+import { COIN_CONFIG } from '@/utils';
 
 export const CoinContainer = styled.div`
   position: relative;
@@ -25,13 +25,13 @@ export const Coin = styled.div<CoinProps>`
   height: 100px;
   background-image: url('/coin-spritesheet.svg');
   background-size: 1200px 100px;
-  background-position: ${props => props.$finalPosition} center;
+  background-position: ${(props) => props.$finalPosition} center;
   background-repeat: no-repeat;
   transform-style: preserve-3d;
   perspective: 1000px;
-  
-  animation: ${({ $isFlipping, $loops }) => 
-    $isFlipping 
+
+  animation: ${({ $isFlipping, $loops }) =>
+    $isFlipping
       ? css`
           ${flipAnimation} ${COIN_CONFIG.FLIP_DURATION}ms steps(12) ${$loops}
         `

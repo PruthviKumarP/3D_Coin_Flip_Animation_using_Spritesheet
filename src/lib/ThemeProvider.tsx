@@ -20,9 +20,5 @@ const theme = {
 };
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  return (
-    <StyledThemeProvider theme={theme}>
-      {children}
-    </StyledThemeProvider>
-  );
+  return <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>;
 }

@@ -5,7 +5,8 @@ import GlobalStyles from '@/styles/GlobalStyles';
 
 export const metadata: Metadata = {
   title: 'Coin Flipper 3D Animation',
-  description: 'Build a simple coin flipper with 3D animation using a sprite sheet | Next.js',
+  description:
+    'Build a simple coin flipper with 3D animation using a sprite sheet | Next.js',
 };
 
 export default function RootLayout({

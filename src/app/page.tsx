@@ -1,4 +1,4 @@
-import { CoinFlipper } from "@/screen";
+import { CoinFlipper } from '@/screen';
 
 export default function Home() {
   return (

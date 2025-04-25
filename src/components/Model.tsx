@@ -78,10 +78,11 @@ const Coin = styled.div<{
     ${MODEL_CONFIG.COLOR.MAIN},
     ${MODEL_CONFIG.COLOR.HIGHLIGHT}
   );
-  box-shadow: 
+  box-shadow:
     0 0 15px rgba(255, 215, 0, 0.6),
     inset 0 -3px 6px rgba(0, 0, 0, 0.2);
-  animation: ${coinFlip} ${({ $duration }) => `${$duration}s`} ease-in-out infinite;
+  animation: ${coinFlip} ${({ $duration }) => `${$duration}s`} ease-in-out
+    infinite;
   animation-delay: ${({ $delay }) => `${$delay}s`};
   transform-style: preserve-3d;
 
@@ -91,7 +92,11 @@ const Coin = styled.div<{
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: linear-gradient(145deg, ${MODEL_CONFIG.COLOR.SHADOW}, ${MODEL_CONFIG.COLOR.MAIN});
+    background: linear-gradient(
+      145deg,
+      ${MODEL_CONFIG.COLOR.SHADOW},
+      ${MODEL_CONFIG.COLOR.MAIN}
+    );
     transform: translateZ(-1px);
     box-shadow: inset 0 3px 6px rgba(255, 255, 255, 0.3);
   }
@@ -106,7 +111,7 @@ const Coin = styled.div<{
     align-items: center;
     font-size: ${({ $size }) => `${$size * 0.4}px`};
     color: ${MODEL_CONFIG.COLOR.MAIN};
-    text-shadow: 
+    text-shadow:
       1px 1px 1px rgba(0, 0, 0, 0.3),
       -1px -1px 1px rgba(255, 255, 255, 0.3);
     backface-visibility: hidden;
@@ -134,7 +139,7 @@ interface CoinConfig {
 const Modal: React.FC<ModalProps> = ({
   isOpen = true,
   onClose = () => null,
-  children
+  children,
 }) => {
   const coins = useMemo<CoinConfig[]>(() => {
     return Array.from({ length: MODEL_CONFIG.COIN_COUNT }, (_, index) => ({
@@ -149,7 +154,7 @@ const Modal: React.FC<ModalProps> = ({
           (MODEL_CONFIG.ANIMATION.DURATION.MAX -
             MODEL_CONFIG.ANIMATION.DURATION.MIN) +
         MODEL_CONFIG.ANIMATION.DURATION.MIN,
-      key: index
+      key: index,
     }));
   }, []);
 

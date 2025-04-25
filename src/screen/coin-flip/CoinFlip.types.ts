@@ -11,4 +11,3 @@ export interface CoinFlipResultProps {
   loops: number;
   position: string;
 }
-
