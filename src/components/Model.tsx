@@ -1,15 +1,15 @@
 'use client';
 import { MODEL_CONFIG } from '@/utils';
-import React, { ReactNode, useMemo } from 'react';
+import React, { ReactNode, useMemo, useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 interface ModalProps {
   isOpen: boolean;
   children: ReactNode;
   onClose?: () => void;
+  title?: string;
 }
 
-// Coin animation
 const coinFlip = keyframes`
   0% {
     transform: translateY(0) rotateY(0deg);
@@ -49,6 +49,26 @@ const ModalContent = styled.div`
   position: relative;
   z-index: 2;
   border: 1px solid rgba(255, 215, 0, 0.3);
+`;
+
+const ModalHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+`;
+
+const ModalTitle = styled.h2`
+  margin: 0;
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: 600;
+`;
+
+const ModalBody = styled.div`
+  padding: 10px 0;
 `;
 
 const CoinsContainer = styled.div`
@@ -139,9 +159,18 @@ interface CoinConfig {
 const Modal: React.FC<ModalProps> = ({
   isOpen = true,
   onClose = () => null,
+  title,
   children,
 }) => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const coins = useMemo<CoinConfig[]>(() => {
+    if (!mounted) return [];
+
     return Array.from({ length: MODEL_CONFIG.COIN_COUNT }, (_, index) => ({
       size:
         Math.random() * (MODEL_CONFIG.SIZE.MAX - MODEL_CONFIG.SIZE.MIN) +
@@ -156,11 +185,13 @@ const Modal: React.FC<ModalProps> = ({
         MODEL_CONFIG.ANIMATION.DURATION.MIN,
       key: index,
     }));
-  }, []);
+  }, [mounted]);
 
   const handleContentClick = (e: React.MouseEvent) => {
     e.stopPropagation();
   };
+
+  if (!isOpen) return null;
 
   return (
     <ModalBackdrop $isOpen={isOpen} onClick={onClose}>
@@ -176,7 +207,14 @@ const Modal: React.FC<ModalProps> = ({
           />
         ))}
       </CoinsContainer>
-      <ModalContent onClick={handleContentClick}>{children}</ModalContent>
+      <ModalContent onClick={handleContentClick}>
+        {title && (
+          <ModalHeader>
+            <ModalTitle>{title}</ModalTitle>
+          </ModalHeader>
+        )}
+        <ModalBody>{children}</ModalBody>
+      </ModalContent>
     </ModalBackdrop>
   );
 };

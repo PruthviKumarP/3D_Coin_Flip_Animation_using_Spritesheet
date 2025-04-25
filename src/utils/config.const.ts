@@ -1,3 +1,5 @@
+'use client';
+
 export const COIN_CONFIG = {
   FLIP_DURATION: 800,
   GOLD_COLOR: '#B8860B',

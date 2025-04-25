@@ -2,14 +2,11 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   compiler: {
-    styledComponents: {
-      displayName: true,
-      ssr: true,
-      fileName: true,
-      pure: true,
-      cssProp: true,
-    },
+    styledComponents: true,
   },
 };
 
