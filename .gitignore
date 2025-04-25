@@ -1,0 +1,69 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# Dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Build and cache directories
+/.next
+/out
+/.turbo
+/.cache
+/build
+/dist
+
+# Testing
+/coverage
+/.jest-cache
+
+# Environment variables
+.env*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# System files
+.DS_Store
+*.pem
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Vercel
+.vercel
+
+# Prettier
+.prettiercache
+
+# ESLint
+.eslintcache
+
+# Lock files (if not committing)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Temporary files
+.tmp
+temp
