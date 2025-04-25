@@ -1,36 +1,37 @@
 {
-  "name": "coin-flip",
-  "version": "0.1.0",
+  "name": "coin-flip-animation",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "format-stagged": "npx pretty-quick --staged",
-    "prepare": "husky"
+    "format": "prettier --write \"src/**/*.{js,ts,jsx,tsx,json,css}\"",
+    "format-stagged" : "pretty-quick --staged",
+    "prepare": "husky",
+    "clean": "rm -rf .next && rm -rf node_modules && rm -rf package-lock.json"
   },
   "dependencies": {
     "next": "15.3.1",
+    "nvm": "^0.0.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "styled-components": "^6.1.17"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.0.0",
-    "@tailwindcss/postcss": "^4.0.0",
-    "@types/node": "^20.0.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "@types/styled-components": "^6.1.0",
-    "eslint": "^9.0.0",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
     "eslint-config-next": "15.3.1",
-    "eslint-config-prettier": "^9.1.0",
-    "prettier": "^3.0.0",
-    "tailwindcss": "^4.0.0",
-    "typescript": "^5.0.0",
+    "tailwindcss": "^4",
+    "typescript": "^5",
     "husky": "^9",
-    "pretty-quick": "^4.1.1"
+    "prettier":"^3",
+    "pretty-quick": "^4",
+    "eslint-plugin-prettier": "^5"
   }
 }
